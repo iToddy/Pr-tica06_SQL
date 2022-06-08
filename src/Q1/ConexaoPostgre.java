@@ -109,8 +109,10 @@ public class ConexaoPostgre {
 		        app.connect();
 		        
 		        Scanner entrada = new Scanner(System.in);
+		        Selections select =  new Selections();
 		        
-		        int menu; 
+		        
+		        int menu, id; 
 		        
 		        do {
 		        	
@@ -122,22 +124,46 @@ public class ConexaoPostgre {
 		        	 
 		        	 case 1: 
 		        		 
+		        		 try {
+		        			 Selections.searchBooks();
+		                    } catch (ClassNotFoundException ex) {
+		                        throw new RuntimeException(ex);
+		                    }
+		        		 
 		        		 break;
 		        	 
 		        	 case 2:
+		        		 
+		        		 try {
+		                        Selections.searchClient();
+		                    } catch (ClassNotFoundException ex) {
+		                        throw new RuntimeException(ex);
+		                    }
+		                    break;
 		        		 
 		        		 break;
 		        		 
 		        	 case 3: 
 		        		 
+		        		 System.out.println("Escreva o id do cliente: ");
+		                    id = entrada.nextInt();
+		                    try {
+		                        Selections.searchOrder(id);
+		                    } catch (ClassNotFoundException ex) {
+		                        throw new RuntimeException(ex);
+		                    }
+		                    break;
+		        		 
 		        		 break;
 		        		 
 		        	 case 4: 
 		        		 
+		        		 System.out.println("Sistema Finalizado");
+		        		 
 		        		 break;
 		        		 
 		        	 default:
-		        		
+		        		 System.out.println("Conexão encerrada");
 		        	 
 		        	 }
 		        
