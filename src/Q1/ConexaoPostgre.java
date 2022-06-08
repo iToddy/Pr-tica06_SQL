@@ -1,5 +1,6 @@
 package Q1;
-
+import java.sql.SQLException;
+import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -125,7 +126,7 @@ public class ConexaoPostgre {
 		        	 case 1: 
 		        		 
 		        		 try {
-		        			 Selections.searchBooks();
+		        			 select.searchBooks();
 		                    } catch (ClassNotFoundException ex) {
 		                        throw new RuntimeException(ex);
 		                    }
@@ -135,26 +136,26 @@ public class ConexaoPostgre {
 		        	 case 2:
 		        		 
 		        		 try {
-		                        Selections.searchClient();
+		        			 select.searchClient();
 		                    } catch (ClassNotFoundException ex) {
 		                        throw new RuntimeException(ex);
 		                    }
 		                    break;
 		        		 
-		        		 break;
+		        		 
 		        		 
 		        	 case 3: 
 		        		 
 		        		 System.out.println("Escreva o id do cliente: ");
 		                    id = entrada.nextInt();
 		                    try {
-		                        Selections.searchOrder(id);
+		                    	select.searchOrder(id);
 		                    } catch (ClassNotFoundException ex) {
 		                        throw new RuntimeException(ex);
 		                    }
 		                    break;
 		        		 
-		        		 break;
+		        		 
 		        		 
 		        	 case 4: 
 		        		 
